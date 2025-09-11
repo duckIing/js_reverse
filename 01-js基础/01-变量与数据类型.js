@@ -16,7 +16,20 @@ ES6 新增的一种数据类型，符号类型，符号类型的实例是唯一�
 1. 区分大小写
 2. 第一个字符必须是字母、下划线（_）或者美元符号（$）
 3. 其他字符可以是字母、下划线、美元符或数字
+
+var     -->     声明一个变量
+const   -->     声明一个常量
+let     -->     es6, 声明一个变量
+
+在爬虫中，var 和 let 没有啥区别，不关注
 */
+
+// 变量
+var aaa = 100;
+aaa = 200;
+
+const BB = 100;
+// BB = 200; // 报错: Assignment to constant variable.
 
 // number
 var a = 10;
@@ -55,7 +68,7 @@ console.log(typeof a);
 console.log(typeof str_data);
 console.log(typeof bool_data);
 console.log(typeof und_data);
-console.log(typeof null_data);
+console.log(typeof null_data); // null 类型是 object
 console.log(typeof obj_data);
 console.log(typeof sym_data);
 
@@ -67,3 +80,7 @@ console.log(arr_data);
 function fun_data(){
     console.log("hello world");
 }
+
+// 连续声明变量
+var a=1, b=2, c=3
+console.log(a,b,c)

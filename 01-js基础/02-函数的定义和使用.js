@@ -9,9 +9,9 @@
 
 // 函数的定义和调用
 function f() {
-    console.log("xxxxx");
+    console.log("xxxxx");  // ; 可见可不加，严谨就加。
 };
-
+f()
 
 // 函数的参数
 function fun1(a, b) {
@@ -29,20 +29,51 @@ function sum(a, b) {
 var mysum = sum(10,20)
 console.log(mysum);
 
-// 函数的嵌套
+// 返回多个值的情况
+function fun2(a, b) {
+    return 888,999,111;
+}
+
+var res = fun2(1,2)
+console.log(res); // 111
+// 说明: 函数只能返回一个值，返回多个值时，以最后一个值为准。
+
+
+// 向没有形式参数的函数传递参数
+function fun3() {
+    console.log("fun3")
+    console.log(arguments); // arguments 是一个类数组对象, 函数调用时的参数保存在 arguments
+    // python 中的 **args ==> [Arguments] { '0': 1, '1': 2, '2': 3, '3': 4, '4': 5 }
+};
+fun3(1,2,3,4,5); // 注意如果这里不加 ; ，会和下面的自执行函数冲突
+
+
+/*
+自执行函数:
+    定义: 定义时立即执行的函数，也被称之为立即调用的函数表达式（IIFE）
+    作用: 避免全局变量的污染
+
+在爬虫中，非常重要，在 debugger 无限调试模式中，有些网站会实现无法调试的功能，白屏啥的，无线debug等。
+*/
+
+// 自执行函数-1
+(function () {console.log("自执行函数 1：hello world")}) ();
+
+
+// 自执行的函数-2
+!function () {
+    console.log("自执行函数 2：hello world");
+}()
+
+// 自执行函数模拟装饰器
 var inner_func;
 !function () {
     function _inner() {
-        console.log("hello world");
+        console.log("内部函数：hello world");
     }
     inner_func = _inner;
 }();
 inner_func();
-
-// 自执行的函数
-!function () {
-    console.log("hello world");
-}()
 
 
 // 匿名函数

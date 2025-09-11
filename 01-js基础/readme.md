@@ -73,7 +73,6 @@ https://www.qcc.com/web/search?key=%E5%B0%8F%E7%B1%B3&p=2
 
 ![1757603404948](image/readme/1757603404948.png)
 
-
 ### （4）响应数据加密
 
 服务器给的数据是加密过的，前端是如何解密渲染的？我们要扣代码 or 复现模拟。
@@ -101,3 +100,8 @@ https://www.swguancha.com/home/ranking-list?code=td&tabName=city
 https://spidertools.cn/#/crypto
 
 ![1757603963760](image/readme/1757603963760.png)
+
+
+# 5. js 学习目标
+
+综上，我们的目标是学习js，能够看懂基本js代码，然后可以定位参数位置，已经逐步调试加密。
