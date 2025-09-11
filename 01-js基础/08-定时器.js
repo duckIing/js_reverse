@@ -20,20 +20,55 @@
     JavaScript清除定时器分别是：
       ● clearTimeout(timeoutID)：清除只执行一次的定时器（setTimeout函数）
       ● clearInterval(timeoutID)：清除反复执行的定时器（setInterval函数）
-
 */
 
-function run_test(){
-    console.log("这是一个测试函数");
-}
+// function run_test1(){
+//     console.log("这是一个测试函数1");
+// }
+
+// /* setTimeout: 延迟执行一次 */
+// setTimeout(run_test1, 1000);  // timeout: 单位是毫秒
+
+// function run_test2(){
+//     console.log("这是一个测试函数2");
+// }
+
+// /* setInterval: 周期性执行 */
+// setInterval(run_test2, 1000);
+
+// // 1和2一起输出
+
+
+/*
+清除定时器
+JavaScript清除定时器分别是：
+  ● clearTimeout(timeoutID)：清除只执行一次的定时器（setTimeout函数）
+  ● clearInterval(timeoutID)：清除反复执行的定时器（setInterval函数）
+*/
+function test() {
+  console.log("这是一个测试函数");
+};
 
 /* setTimeout: 延迟执行一次 */
-setTimeout(run_test, 3000);  // timeout: 单位是毫秒
+let timeoutID = setTimeout(test, 1000);
+
+/* 清除定时器 */
+clearTimeout(timeoutID);
+
+/* setInterval: 周期性执行 */
+let intervalID = setInterval(test, 1000);
+
+/* 清除定时器 */
+clearInterval(intervalID);
+
 
 function run_test(){
     console.log("这是一个测试函数");
 }
 
-/* setInterval: 周期性执行 */
-setInterval(run_test, 2000);
-set
+setInterval = function () {
+    // console.log(arguments[0]);
+    arguments[0]();
+}
+
+setInterval(run_test)

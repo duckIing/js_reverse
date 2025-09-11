@@ -5,16 +5,17 @@
 
 // 异步示例
 // 1. 同步代码示例
+
 // console.log('===== 同步代码示例 =====');
 // console.log('第一行');
 // console.log('第二行');
 // console.log('第三行');
 
-// 异步代码示例（使用定时器）
+/*(异步代码示例（使用定时器）*/
 // console.log('\n===== 异步代码示例 =====');
 // console.log('开始');
 
-// setTimeout的基本使用
+// /*setTimeout的基本使用*/
 // function printMessage() {
 //   console.log('我是2秒后才执行的代码');
 // }
@@ -29,6 +30,7 @@
 2. setTimeout中的代码会延迟执行
 3. 程序不会等待setTimeout，会继续执行后面的代码
 */
+
 // console.log('\n===== 多个定时器示例 =====');
 // console.log('开始执行');
 
@@ -57,11 +59,14 @@
 //     }, 1000);
 // }, 1000);
 
+
+/////////////////////////////////////////////////////////////
+
+
 /*
 Promise是一种异步代码实现方式，它可以更好地处理异步操作的结果。
 在JavaScript中，Promise对象代表了一个异步操作的最终完成或失败状态，并提供了相应的方法处理异步操作的结果
-*/
-/*
+
     1. Promise的基本概念：处理异步操作的一种方式
     2. Promise的三种状态：pending（进行中）、fulfilled（成功）、rejected（失败）
     3. Promise的基本用法
@@ -69,6 +74,11 @@ Promise是一种异步代码实现方式，它可以更好地处理异步操作�
     new Promise(function (resolve, reject) {
         // 要做的事情...
     });
+
+一个 Promise 必然处于以下几种状态之一：
+    待定（pending）：初始状态，既没有被兑现，也没有被拒绝。
+    已兑现（fulfilled）：意味着操作成功完成。
+    已拒绝（rejected）：意味着操作失败。
 
 resolve和reject是Promise构造函数中传递的两个回调函数参数，用于控制Promise的状态。
 1. resolve
@@ -78,31 +88,56 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
 2. reject
   a. 用于将Promise的状态从pending（进行中）变为rejected（失败）
   b. 调用reject时，可以传递一个错误信息，这个信息作为catch方法中回调函数的参数
-
 */
-function simplePromise() {
-    var promise = new Promise(function (resolve, reject) {
-        // 模拟异步操作
-        var success = true;
 
-        if (success) {
-            // resolve表示操作成功并返回结果
-            resolve('操作成功...');
-        } else {
-            // reject表示操作失败并返回错误信息
-            reject('操作失败...');
-        }
-    });
-    return promise;
+// 成功的回调函数
+function successCallback(result) {
+  console.log("音频文件创建成功：" + result);
 }
 
-// 使用promise
-var obj = simplePromise();
-obj.then(function (result) {  // then: 类似python中的gather返回任务结果
-    console.log('成功:', result);
-}).catch(function (error) {  // catch用于处理错误, 类似python中的except
-    console.log('失败:', error);
-});
+// 失败的回调函数
+function failureCallback(error) {
+  console.log("音频文件创建失败：" + error);
+}
+
+createAudioFileAsync(audioSettings, successCallback, failureCallback);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function simplePromise() {
+//     var promise = new Promise(function (resolve, reject) {
+//         // 模拟异步操作
+//         var success = true;
+
+//         if (success) {
+//             // resolve表示操作成功并返回结果
+//             resolve('操作成功...');
+//         } else {
+//             // reject表示操作失败并返回错误信息
+//             reject('操作失败...');
+//         }
+//     });
+//     return promise;
+// }
+
+// // 使用promise
+// var obj = simplePromise();
+// obj.then(function (result) {  // then: 类似python中的gather返回任务结果
+//     console.log('成功:', result);
+// }).catch(function (error) {  // catch用于处理错误, 类似python中的except
+//     console.log('失败:', error);
+// });
 
 
 

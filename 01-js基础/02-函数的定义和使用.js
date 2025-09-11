@@ -51,9 +51,10 @@ var f = function () {
 }
 f()
 
-// 匿名函数
-(
-    function () {
-        console.log("hello world 匿名函数");
-    }
-)()
+// 箭头函数
+var f = () => {
+    console.log("hello world 箭头函数");
+}
+f()
+
+setTimeout(() => {console.log("hello world 箭头函数")},1000);
