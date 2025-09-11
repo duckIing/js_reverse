@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax请求示例</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        .post {
+            border: 1px solid darkgrey;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<button id="get-posts-btn" onclick="getPosts()">获取文章列表</button>
+<div id="postList"></div>
+<div id="error"></div>
+
+<script>
+    function getPosts() {
+        $.ajax({
+            // 请求的URL(有些网站带cors跨域验证会导致请求失败)
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            // 请求的方法
+            method: 'GET',
+            // 指定数据类型为JSON
+            dataType: 'json',
+            // 是否异步请求
+            async: true,
+            // 请求的参数, 一般发送post请求时会使用
+            data: {
+                // 例如：{ id: 1, name: 'John' }
+            },
+
+            // 请求成功时的回调函数
+            success: function (response) {
+                console.log('请求成功：', response);
+                displayPosts(response);
+            },
+            // 请求失败时的回调函数
+            error: function (xhr, status, error) {
+                console.error('请求失败：', error);
+                handleError(error);
+            }
+        });
+    }
+
+    function displayPosts(posts) {
+        const postList = document.getElementById('postList');
+        if (postList) {
+            postList.innerHTML = posts
+                .slice(0, 10) // 只显示前10篇文章
+                .map(post => `
+                        <div class="post">
+                            <h3>${post.title}</h3>
+                            <p>${post.body}</p>
+                        </div>
+                    `)
+                .join('');
+        }
+    }
+
+    function handleError(error) {
+        const errorDiv = document.getElementById('error');
+        if (errorDiv) {
+            errorDiv.textContent = `获取数据失败：${error}`;
+        }
+    }
+</script>
+</body>
+</html>
