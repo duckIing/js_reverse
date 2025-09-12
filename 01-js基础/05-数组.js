@@ -23,6 +23,9 @@ arr_len = arr.length;
 arr[arr_len] = 6;
 console.log(arr);
 
+arr.push(6666)
+console.log(arr);
+
 // 头部添加元素
 var my_array = [1, 2, 3, 4, '5'];
 my_array.unshift('0');  // 在数组开头添加一个元素
