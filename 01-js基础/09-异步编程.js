@@ -97,70 +97,60 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
   b. 调用reject时，可以传递一个错误信息，这个信息作为catch方法中回调函数的参数
 */
 
-function simplePromise() {
-  var promise = new Promise(function(resolve, reject) {
-    var success = true; // 模拟异步操作
-    if (success) {
-        resolve('操作成功...');
-    } else {
-        reject('操作失败...');
-    }
-  });
-  return promise;
-}
+//----------------------------------------------------------------
 
-var obj = simplePromise()
-
-
-
-// // 成功的回调函数
-// function successCallback(result) {
-//   console.log("音频文件创建成功：" + result);
-// }
-
-// // 失败的回调函数
-// function failureCallback(error) {
-//   console.log("音频文件创建失败：" + error);
-// }
-
-// createAudioFileAsync(audioSettings, successCallback, failureCallback);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// // Promise 基本使用
 // function simplePromise() {
-//     var promise = new Promise(function (resolve, reject) {
-//         // 模拟异步操作
-//         var success = true;
-
-//         if (success) {
-//             // resolve表示操作成功并返回结果
-//             resolve('操作成功...');
-//         } else {
-//             // reject表示操作失败并返回错误信息
-//             reject('操作失败...');
-//         }
-//     });
-//     return promise;
+//   var promise = new Promise(function(resolve, reject) {
+//     var success = true; // 模拟异步操作
+//     if (success) {
+//         resolve('操作成功...');
+//     } else {
+//         reject('操作失败...');
+//     }
+//   });
+//   return promise;
 // }
 
-// // 使用promise
-// var obj = simplePromise();
-// obj.then(function (result) {  // then: 类似python中的gather返回任务结果
-//     console.log('成功:', result);
-// }).catch(function (error) {  // catch用于处理错误, 类似python中的except
-//     console.log('失败:', error);
+// var obj = simplePromise()
+// obj.then(function (result) {
+//     console.log(result);  // 回调 resolve
+// }).catch(function (error) {
+//     console.log(error);  // 回调 reject
+// }).finally(function () {
+//     console.log('finally');
+// })
+
+//----------------------------------------------------------------
+
+// // 带延迟的 promise 示例
+// function delayPromise() {
+//   var promise = new Promise(function (resolve, reject) {
+//     console.log('开始执行');
+
+//     // 模拟延迟
+//     setTimeout(() => {
+//       resolve('操作成功...');
+//     }, 2000);
+
+//   });
+//   return promise;
+// }
+
+// // 调用 delayPromise 函数
+// delayPromise().then(function (result) {
+//     console.log(result);  // 2秒后输出: 操作成功...
+// }).catch(function (error) {
+//     console.log(error);  // 4秒后输出: 操作失败...
 // });
+
+// console.log('调用 delayPromise 函数之后');
+
+
+//----------------------------------------------------------------
+
+// promise 链式调用
+
 
 
 
