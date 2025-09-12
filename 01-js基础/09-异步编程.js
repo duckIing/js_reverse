@@ -104,9 +104,9 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
 //   var promise = new Promise(function(resolve, reject) {
 //     var success = true; // 模拟异步操作
 //     if (success) {
-//         resolve('操作成功...');
+//         resolve('操作成功...'); // 作为 then 方法中的回调函数的参数。
 //     } else {
-//         reject('操作失败...');
+//         reject('操作失败...');  // 作为 catch 方法中的回调函数的参数。
 //     }
 //   });
 //   return promise;
@@ -114,9 +114,9 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
 
 // var obj = simplePromise()
 // obj.then(function (result) {
-//     console.log(result);  // 回调 resolve
+//     console.log(result); 
 // }).catch(function (error) {
-//     console.log(error);  // 回调 reject
+//     console.log(error); 
 // }).finally(function () {
 //     console.log('finally');
 // })
@@ -130,7 +130,7 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
 
 //     // 模拟延迟
 //     setTimeout(() => {
-//       resolve('操作成功...');
+//       resolve('操作成功...');  // 成功返回
 //     }, 2000);
 
 //   });
@@ -149,8 +149,70 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
 
 //----------------------------------------------------------------
 
-// promise 链式调用
+// // promise 链式调用
+// function delayPromise1() {
+//   var promise = new Promise(function (resolve, reject) {
+//     // 模拟延迟
+//     setTimeout(() => {
+//       console.log('delayPromise1 开始执行');
+//       resolve('result: delayPromise1 操作成功...');  // 作为 then 方法中回调函数的参数
+//     }, 1000);
+//   });
+//   return promise;
+// }
+
+// function delayPromise2(delayPromise1_result) {
+//   var promise = new Promise(function (resolve, reject) {
+//     // 模拟延迟
+//     setTimeout(() => {
+//       console.log('delayPromise2 开始执行，第1步：', delayPromise1_result);
+//       resolve('result: delayPromise2 操作成功...');
+//     }, 2000);
+//   });
+//   return promise;
+// }
+
+// function delayPromise3(delayPromise2_result) {
+//   var promise = new Promise(function (resolve, reject) {
+//     // 模拟延迟
+//     setTimeout(() => {
+//       console.log('delayPromise3 开始执行, 第2步：', delayPromise2_result);
+//       resolve('result: delayPromise3 操作成功...');
+//     }, 3000);
+//   });
+//   return promise;
+// }
+
+// delayPromise1().then(delayPromise2).then(delayPromise3).then(function (result) {
+//     console.log('最后的结果：', result);  
+// })
 
 
+//----------------------------------------------------------------
 
+// async / await
 
+function run_async() {
+  var promise = new Promise(function (resolve, reject) {
+    var async_data = 'async data'
+    resolve(async_data);
+  });
+  return promise;
+}
+
+async function run() {
+  var data = await run_async();
+  console.log(data);
+}
+
+run()
+
+// 还可以这样写
+run().then(()=>{
+  console.log('run 函数执行完毕');
+})
+
+//
+run().then(()=>{})
+
+console.log('文件末尾。')
