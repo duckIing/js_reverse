@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ajax请求示例</title>
+    <!-- 导入 jquery 源码 -->
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <style>
         .post {
@@ -14,12 +15,18 @@
     </style>
 </head>
 <body>
+<!-- 按钮 -->
 <button id="get-posts-btn" onclick="getPosts()">获取文章列表</button>
+<!-- js会动态把数据插入到这个div中 -->
 <div id="postList"></div>
+<!-- 错误信息会显示在这个div中 -->
 <div id="error"></div>
 
 <script>
+    // 点击按钮获取文章列表
     function getPosts() {
+        // 在 jquery 中的所有方法可以使用 $ 调用。
+        // $ 可以理解为全局对象。
         $.ajax({
             // 请求的URL(有些网站带cors跨域验证会导致请求失败)
             url: 'https://jsonplaceholder.typicode.com/posts',
@@ -33,15 +40,16 @@
             data: {
                 // 例如：{ id: 1, name: 'John' }
             },
-
             // 请求成功时的回调函数
             success: function (response) {
                 console.log('请求成功：', response);
+                // 操作 dom
                 displayPosts(response);
             },
             // 请求失败时的回调函数
             error: function (xhr, status, error) {
                 console.error('请求失败：', error);
+                // 操作 dom
                 handleError(error);
             }
         });

@@ -4,6 +4,8 @@ Ajax通信特点
 1. 异步通信：Ajax通过异步方式与服务器交换数据，用户可以在不刷新页面的情况下与服务器交互
 2. 数据传输：Ajax可以发送和接收多种格式的数据，比如json、xml、html或纯文本
 3. 核心模块：Ajax的核心是XMLHttpRequest对象（或现代浏览器中的fetch API），它用于发送HTTP请求和接收响应
+
+XMLHttpRequest 比较复杂，jQuery 对其进行了封装，我们开发网站一般都是用 jQuery.
 */
 
 /*
