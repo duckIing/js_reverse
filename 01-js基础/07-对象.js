@@ -45,18 +45,22 @@ obj_2.run_function();
 // 利用构造函数创建对象
 // 构造函数：是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，
 // 它总与new运算符一起使用。我们可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。
-function Person() {
-    this.name = "admin-3";
-    this.age = 13;
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
     this.print_info = function () {
         console.log(this.name, this.age);
     }
 }
-var p1 = new Person();
+var p1 = new Person('abc', 12);
 console.log(p1);
 console.log(p1.name);
+console.log(p1.age);
 p1.print_info();
 
+
+
+// 类的使用
 /*
     class 类名 {
         // 构造方法，用于声明实例属性
