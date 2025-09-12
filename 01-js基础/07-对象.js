@@ -30,7 +30,7 @@ var obj_1 = {
 console.log(obj_1);
 console.log(obj_1.name)
 obj_1.print_info();
-
+console.log('-'.repeat(20));
 
 // 利用new Object创建对象
 var obj_2 = Object();
@@ -40,14 +40,14 @@ obj_2.run_function = function () {
 }
 console.log(obj_2.name);
 obj_2.run_function();
-
+console.log('-'.repeat(20));
 
 // 利用构造函数创建对象
 // 构造函数：是一种特殊的函数，主要用来初始化对象，即为对象成员变量赋初始值，
 // 它总与new运算符一起使用。我们可以把对象中一些公共的属性和方法抽取出来，然后封装到这个函数里面。
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
+function Person() {
+    this.name = "admin-3";
+    this.age = 13;
     this.print_info = function () {
         console.log(this.name, this.age);
     }
@@ -57,6 +57,7 @@ console.log(p1);
 console.log(p1.name);
 console.log(p1.age);
 p1.print_info();
+console.log('-'.repeat(20));
 
 
 
