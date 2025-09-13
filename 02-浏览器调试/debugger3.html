@@ -5,6 +5,18 @@
     <title>测试</title>
 </head>
 <body>
+<h1>需要使用代码注入！</h1>
+<pre>
+var _constructor = constructor;
+Function.prototype.constructor = function(attr) {
+    if (attr == "debugger") {
+        console.log(attr);
+        return null;
+    }
+    return _constructor(attr);
+}
+</pre>
+
 hello
 </body>
 <script>
@@ -12,8 +24,7 @@ hello
     function check() {
         // 定义内部函数 do_check
         function do_check() {
-            (function () {
-            }["constructor"]("debugger")()); // 动态执行 debugger 语句
+            (function () {}["constructor"]("debugger")()); // 动态执行 debugger 语句
             do_check(++arguments[0]); // 递归调用，传入参数自增
         }
 

@@ -2,8 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>测试</title>
+    <title>测试:定时器 debugger</title>
 </head>
+
+<p>定时器 debugger</p>
+<p>在控制台中无法跳过，
+    （1）把 debugger 的功能关闭即可；
+    （2）或者一律不在此处暂停；
+    （3）或者在debugger处，增加一个永远不成立的条件。
+    （4）使用方法置空（修改函数指向）
+            setInterval = function () {
+            // console.log(arguments[0]); // 注意：arguments 是收集的参数
+            arguments[0]();
+        }
+</p>
 
 <h1 id="box"></h1>
 
