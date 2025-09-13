@@ -8,7 +8,11 @@
 
 **NVM**是管理**Node.js**版本的工具，功能类似Python的**Conda**。课程要求安装**Node.js 16版本**，其他版本（如18、20、22）因语法兼容性问题可能导致代码报错。
 
-**需要自行安装** `nvm`（`nvm`全名：`node.js management`，顾名思义是一个 `node.js` 的版本管理工具。通过它可以安装和切换不同版本的 `nodejs`）
+**需要自行安装** `nvm`
+
+`nvm`全名：`node.js management`，顾名思义是一个 `node.js` 的版本管理工具。
+
+通过它可以安装和切换不同版本的 `nodejs`。
 
 **下载地址：**[https://github.com/coreybutler/nvm-windows/releases](https://github.com/coreybutler/nvm-windows/releases)
 
