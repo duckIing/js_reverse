@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+hello
+</body>
+<script>
+    // 方式一
+    function check() {
+        // 定义内部函数 do_check
+        function do_check() {
+            (function () {
+            }["constructor"]("debugger")()); // 动态执行 debugger 语句
+            do_check(++arguments[0]); // 递归调用，传入参数自增
+        }
+
+        try {
+            do_check(0); // 调用 do_check，初始参数为 0
+        } catch (err) {
+            console.log(err); // 捕获并打印异常
+        }
+    }
+
+    check(); // 调用 check 函数
+
+    // 方式二
+    // 使用 Function 构造函数动态创建包含 debugger 的函数
+    // variable = Function("debugger;");
+    
+    // 执行动态创建的函数
+    // variable();
+</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+</head>
+<body>
+hello
+</body>
+<script>
+    function detectDevTools() {
+        var threshold = 200;
+        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        if (widthThreshold || heightThreshold) {
+            debugger;
+            console.log('控制台打开了...')
+        }
+    }
+
+    setInterval(detectDevTools, 100)
+</script>
+</html>
