@@ -55,9 +55,9 @@ function testLet() {
 testLet();
 
 
-// 声明提升
-// var：存在声明提升。
-// let：不存在声明提升（存在暂时性死区）
+// 声明上提
+// var：存在声明上提。
+// let：不存在声明上提（存在暂时性死区）
 function testDeclare() {
     console.log(a); // undefined
     var a = 10;
