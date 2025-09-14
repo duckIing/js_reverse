@@ -192,27 +192,27 @@ resolve和reject是Promise构造函数中传递的两个回调函数参数，用
 
 // async / await
 
-function run_async() {
-  var promise = new Promise(function (resolve, reject) {
-    var async_data = 'async data'
-    resolve(async_data);
-  });
-  return promise;
-}
+// function run_async() {
+//   var promise = new Promise(function (resolve, reject) {
+//     var async_data = 'async data'
+//     resolve(async_data);
+//   });
+//   return promise;
+// }
 
-async function run() {
-  var data = await run_async();
-  console.log(data);
-}
+// async function run() {
+//   var data = await run_async();
+//   console.log(data);
+// }
 
-run()
+// run()
 
-// 还可以这样写
-run().then(()=>{
-  console.log('run 函数执行完毕');
-})
+// // 还可以这样写
+// run().then(()=>{
+//   console.log('run 函数执行完毕');
+// })
 
-//
-run().then(()=>{})
+// //
+// run().then(()=>{})
 
-console.log('文件末尾。')
+// console.log('文件末尾。')
